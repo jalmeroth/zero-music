@@ -107,7 +107,7 @@ mosquitto_sub -v -t "#"
 ## Zero Music
 
 ```sh
-git clone https://gitea.lab.almeroth.com/jan/zero-music.git
+git clone https://github.com/jalmeroth/zero-music.git
 ```
 
 ### Python
