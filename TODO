@@ -1,0 +1,9 @@
+# Zero Music
+- Better handling of MusicCast device beeing offline
+
+# System
+- unattended upgrades
+- echo none | sudo tee /sys/class/leds/led0/trigger
+
+# Setup
+- ansible

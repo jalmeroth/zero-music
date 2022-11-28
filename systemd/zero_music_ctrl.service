@@ -1,0 +1,17 @@
+[Unit]
+Description=Zero Music Controller
+# When systemd stops or restarts the app.service, the action is propagated to this unit
+PartOf=zero_music.service
+# Start this unit after the app.service start
+After=zero_music.service
+
+[Service]
+EnvironmentFile=-/home/pi/zero-music/live.env
+# Pretend that the component is running
+ExecStart=/bin/bash -c '${VENV_HOME}/bin/python ${ZERO_HOME}/src/controller.py -d --play "${PLAY}" --startup "${STARTUP}" --shutdown "${SHUTDOWN}"'
+# Restart the service on non-zero exit code when terminated by a signal other than SIGHUP, SIGINT, SIGTERM or SIGPIPE
+Restart=on-failure
+
+[Install]
+# This unit should start when app.service is starting
+WantedBy=zero_music.service
