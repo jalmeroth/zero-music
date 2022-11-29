@@ -8,3 +8,4 @@ API_ENDPOINTS = {
 }
 MQTT_TOPIC_UPDATES = "mc_messages"
 MQTT_TOPIC_DEVICES = "devices"
+MAX_VOLUME = 25

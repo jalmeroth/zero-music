@@ -7,7 +7,7 @@ import threading
 
 import paho.mqtt.client as mqtt
 
-from .const import API_ENDPOINTS, MQTT_TOPIC_DEVICES, MQTT_TOPIC_UPDATES
+from .const import API_ENDPOINTS, MAX_VOLUME, MQTT_TOPIC_DEVICES, MQTT_TOPIC_UPDATES
 from .helpers import request, socket_worker
 from .socket import SocketHandler
 
@@ -87,6 +87,9 @@ class MusicCastDevice:
 
     def set_volume(self, volume):
         """Set volume."""
+        if self.volume >= MAX_VOLUME and volume == "up":  # protect some ears
+            logging.debug("Volume: ignore up command")
+            return
         url = API_ENDPOINTS["setVolume"].format(self.host)
         params = {"volume": volume}
         return request(url, headers=self.headers(), params=params)
