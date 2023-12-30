@@ -1,10 +1,12 @@
 # Zero Music
+
 A music player for kids controlled by RFID cards and colorful clicky buttons.
 Streaming music to a Yamaha MusicCast speaker via Bluetooth has never been easier.
 
 ![Components](./docs/components.png "Components")
 
 ## Bill of material
+
 - Raspberry Pi Zero W
 - [RFID Reader Kit RC522](https://www.amazon.de/dp/B074S8MRQ7)
 - [Arcade Buttons](https://www.amazon.de/dp/B075DCB7LT)
@@ -70,6 +72,7 @@ reboot
 ```
 
 ### Packages
+
 - git
 - mosquitto
 - mosquitto-clients
@@ -79,10 +82,13 @@ reboot
 - pulseaudio-module-bluetooth
 - pulseaudio-utils
 - python3-dbus
+- python3-rpi.gpio
+- python3-spidev
 - python3-venv
 - tree
 
 ## Pulse Audio
+
 https://forum-raspberrypi.de/forum/thread/50427-mpd-mit-pulseaudio-und-bluetooth-raspi-os-lite/
 
 ```sh
@@ -93,6 +99,7 @@ pulseaudio --start
 - https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/
 
 ## mpd / mpc
+
 - https://www.musicpd.org
 - https://mpd.readthedocs.io/en/stable/user.html
 - https://www.musicpd.org/doc/mpc/html/
@@ -111,6 +118,7 @@ git clone https://github.com/jalmeroth/zero-music.git
 ```
 
 ### Python
+
 ```sh
 # Change into zero-music folder
 cd ~/zero-music
@@ -133,6 +141,7 @@ raspi-config
 ```
 
 ### musiccast.py
+
 Connects to your Yamaha MusicCast device and watches for status updates.
 
 ```sh
